@@ -1,0 +1,49 @@
+<div class="container">
+  <h1>Signup form</h1>
+  <form [formGroup]="reactiveform">
+      <div class="row mb-3">
+          <div class="col">
+            <label>
+            User FullName<span>*</span></label>
+
+            <input formControlName="name" type="text" class="form-control" aria-label="User First Name" ngModel/>
+         <span *ngIf="ritesh||forms['name'] .dirty||forms['name'].touched &&forms['name'].invalid" class="info-msg text-danger">
+          <small *ngIf="ritesh||forms['name'].errors&&forms['name'].errors?.['required']">
+            Name is required</small>
+            <small *ngIf="forms['name'].errors && forms['name'].errors?.['minlength']">character must be at least 1 word long</small>
+         </span>
+          </div>
+          <div class="mb-3">
+            <label>
+             
+            Email<span>*</span></label>
+            
+            <input
+              type="email"
+              class="form-control"
+              id="exampleInputEmail1"
+              name="email"
+              formControlName="email"
+            />
+            <span *ngIf="ritesh||forms['email'] .dirty||forms['email'].touched &&forms['email'].invalid" class="info-msg text-danger" >
+              <small *ngIf="forms['name'].errors&&forms['name'].errors">Email is required</small>
+
+              </span>
+          </div>
+          <div class="mb-3">
+            <label>Password <span>*</span></label>
+            <input
+              type="password"
+              class="form-control"
+              id="exampleInputPassword1"
+              name="password"
+              formControlName="password"
+            />
+           <span *ngIf="ritesh||forms['password'] .dirty||forms['password'].touched &&forms['password'].invalid" class="info-msg text-danger"> 
+            <small *ngIf="forms['name'].errors&&forms['name'].errors">Password is required</small></span>
+          </div>
+
+      </div>
+      <button type="submit" class="btn btn-primary" (click)="onSubmitForm(reactiveform)" >Submit</button>
+  </form>
+</div>
